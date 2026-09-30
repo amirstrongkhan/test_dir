@@ -1,0 +1,172 @@
+Pair Exercise 2 - Python interactive session
+
+Question 2
+>>> mystring = '"Hello, World!"'
+>>> print(mystring)
+"Hello, World!"
+
+Question 3
+>>> mystring = "'Hello, World!\""
+>>> print(mystring)
+'Hello, World!"
+
+Question 4
+>>> poem = """First I saw the white bear, then I saw the black;
+... Then I saw the camel with a hump upon his back;
+... Then I saw the grey wolf, with mutton in his maw;
+... Then I saw the wombat waddle in the straw;
+... Then I saw the elephant a waving of his trunk;
+... Then I saw the monkeys - mercy, how unpleasantly they smelt!"""
+>>> print(poem)
+First I saw the white bear, then I saw the black;
+Then I saw the camel with a hump upon his back;
+Then I saw the grey wolf, with mutton in his maw;
+Then I saw the wombat waddle in the straw;
+Then I saw the elephant a waving of his trunk;
+Then I saw the monkeys - mercy, how unpleasantly they smelt!
+
+Question 5
+>>> len(poem)
+298
+
+Question 6
+>>> len(set(poem))
+31
+
+Question 7
+>>> import string
+>>> poem_nopunc = poem.translate(str.maketrans('', '', string.punctuation))
+>>> print(poem_nopunc)
+First I saw the white bear then I saw the black
+Then I saw the camel with a hump upon his back
+Then I saw the grey wolf with mutton in his maw
+Then I saw the wombat waddle in the straw
+Then I saw the elephant a waving of his trunk
+Then I saw the monkeys  mercy how unpleasantly they smelt
+
+Question 8
+>>> poem_words = poem_nopunc.split()
+>>> print(poem_words)
+['First', 'I', 'saw', 'the', 'white', 'bear', 'then', 'I', 'saw', 'the', 'black', 'Then', 'I', 'saw', 'the', 'camel', 'with', 'a', 'hump', 'upon', 'his', 'back', 'Then', 'I', 'saw', 'the', 'grey', 'wolf', 'with', 'mutton', 'in', 'his', 'maw', 'Then', 'I', 'saw', 'the', 'wombat', 'waddle', 'in', 'the', 'straw', 'Then', 'I', 'saw', 'the', 'elephant', 'a', 'waving', 'of', 'his', 'trunk', 'Then', 'I', 'saw', 'the', 'monkeys', 'mercy', 'how', 'unpleasantly', 'they', 'smelt']
+
+Question 9
+>>> len(poem_words)
+62
+
+Question 10
+>>> len(set(poem_words))
+34
+
+Question 11
+>>> poem_words[-16]
+'elephant'
+
+Question 12
+>>> print(*poem_words[::-1])
+smelt they unpleasantly how mercy monkeys the saw I Then trunk his of waving a elephant the saw I Then straw the in waddle wombat the saw I Then maw his in mutton with wolf grey the saw I Then back his upon hump a with camel the saw I Then black the saw I then bear white the saw I First
+>>> for word in reversed(poem_words):
+...     print(word, end=" ")
+... 
+smelt they unpleasantly how mercy monkeys the saw I Then trunk his of waving a elephant the saw I Then straw the in waddle wombat the saw I Then maw his in mutton with wolf grey the saw I Then back his upon hump a with camel the saw I Then black the saw I then bear white the saw I First >>> print()
+
+
+Question 13
+>>> print(*poem_words[::2])
+First saw white then saw black I the with hump his Then saw grey with in maw I the waddle the Then saw elephant waving his Then saw monkeys how they
+>>> for i in range(0, len(poem_words), 2):
+...     print(poem_words[i], end=" ")
+... 
+First saw white then saw black I the with hump his Then saw grey with in maw I the waddle the Then saw elephant waving his Then saw monkeys how they >>> print()
+
+
+Question 14
+>>> for word in poem_words:
+...     if word == "mutton":
+...         break
+...     print(word, end=" ")
+... 
+First I saw the white bear then I saw the black Then I saw the camel with a hump upon his back Then I saw the grey wolf with >>> print()
+
+
+Question 15
+>>> poem_tuple = tuple(poem_words)
+>>> print(poem_tuple)
+('First', 'I', 'saw', 'the', 'white', 'bear', 'then', 'I', 'saw', 'the', 'black', 'Then', 'I', 'saw', 'the', 'camel', 'with', 'a', 'hump', 'upon', 'his', 'back', 'Then', 'I', 'saw', 'the', 'grey', 'wolf', 'with', 'mutton', 'in', 'his', 'maw', 'Then', 'I', 'saw', 'the', 'wombat', 'waddle', 'in', 'the', 'straw', 'Then', 'I', 'saw', 'the', 'elephant', 'a', 'waving', 'of', 'his', 'trunk', 'Then', 'I', 'saw', 'the', 'monkeys', 'mercy', 'how', 'unpleasantly', 'they', 'smelt')
+
+Question 16
+>>> slice = poem_words[38:42]
+>>> print(slice)
+['waddle', 'in', 'the', 'straw']
+
+Question 17
+>>> slice[0] = "drink"
+>>> print(slice)
+['drink', 'in', 'the', 'straw']
+
+Question 18
+>>> poem_words.sort()
+>>> print(poem_words)
+['First', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'Then', 'Then', 'Then', 'Then', 'Then', 'a', 'a', 'back', 'bear', 'black', 'camel', 'elephant', 'grey', 'his', 'his', 'his', 'how', 'hump', 'in', 'in', 'maw', 'mercy', 'monkeys', 'mutton', 'of', 'saw', 'saw', 'saw', 'saw', 'saw', 'saw', 'saw', 'smelt', 'straw', 'the', 'the', 'the', 'the', 'the', 'the', 'the', 'the', 'then', 'they', 'trunk', 'unpleasantly', 'upon', 'waddle', 'waving', 'white', 'with', 'with', 'wolf', 'wombat']
+
+Question 19
+>>> h_words = [word for word in poem_words if word.startswith("h")]
+>>> print(h_words)
+['his', 'his', 'his', 'how', 'hump']
+
+Question 20
+>>> m_words = [word.upper() if "m" in word else word for word in poem_words]
+>>> print(m_words)
+['First', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'Then', 'Then', 'Then', 'Then', 'Then', 'a', 'a', 'back', 'bear', 'black', 'CAMEL', 'elephant', 'grey', 'his', 'his', 'his', 'how', 'HUMP', 'in', 'in', 'MAW', 'MERCY', 'MONKEYS', 'MUTTON', 'of', 'saw', 'saw', 'saw', 'saw', 'saw', 'saw', 'saw', 'SMELT', 'straw', 'the', 'the', 'the', 'the', 'the', 'the', 'the', 'the', 'then', 'they', 'trunk', 'unpleasantly', 'upon', 'waddle', 'waving', 'white', 'with', 'with', 'wolf', 'WOMBAT']
+
+Question 21
+>>> multi_table = [[i * j for j in range(1, 13)] for i in range(1, 13)]
+>>> for row in multi_table:
+...     print(row)
+... 
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]
+[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36]
+[4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48]
+[5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]
+[6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72]
+[7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84]
+[8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96]
+[9, 18, 27, 36, 45, 54, 63, 72, 81, 90, 99, 108]
+[10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]
+[11, 22, 33, 44, 55, 66, 77, 88, 99, 110, 121, 132]
+[12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144]
+
+Question 22
+>>> poem_lower = poem_nopunc.lower()
+>>> print(poem_lower)
+first i saw the white bear then i saw the black
+then i saw the camel with a hump upon his back
+then i saw the grey wolf with mutton in his maw
+then i saw the wombat waddle in the straw
+then i saw the elephant a waving of his trunk
+then i saw the monkeys  mercy how unpleasantly they smelt
+
+Question 23
+>>> char_counts = {char: poem_lower.count(char) for char in sorted(set(poem_lower))}
+>>> print(char_counts)
+{'\n': 5, ' ': 57, 'a': 21, 'b': 4, 'c': 4, 'd': 2, 'e': 26, 'f': 3, 'g': 2, 'h': 24, 'i': 17, 'k': 4, 'l': 8, 'm': 8, 'n': 16, 'o': 7, 'p': 4, 'r': 6, 's': 15, 't': 27, 'u': 5, 'v': 1, 'w': 17, 'y': 5}
+
+Question 24
+>>> for key, value in char_counts.items():
+...     if key in "aeiouy":
+...         print(key, value)
+... 
+a 21
+e 26
+i 17
+o 7
+u 5
+y 5
+>>> print({key: value for key, value in char_counts.items() if key in "aeiouy"})
+{'a': 21, 'e': 26, 'i': 17, 'o': 7, 'u': 5, 'y': 5}
+
+Question 25
+>>> missing_letters = set(string.ascii_lowercase) - set(poem_lower)
+>>> print(sorted(missing_letters))
+['j', 'q', 'x', 'z']
+

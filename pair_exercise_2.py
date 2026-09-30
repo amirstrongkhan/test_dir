@@ -73,7 +73,7 @@ multi_table = [[i * j for j in range(1, 13)] for i in range(1, 13)]
 poem_lower = poem_nopunc.lower()
 
 # Question 23
-char_counts = {char: poem_lower.count(char) for char in set(poem_lower)}
+char_counts = {char: poem_lower.count(char) for char in sorted(set(poem_lower))}
 
 # Question 24
 for key, value in char_counts.items():
@@ -89,4 +89,3 @@ print(missing_letters)
 
 # Extra credit for Question 25
 print(set(string.ascii_lowercase) - set(poem_lower))
-exit()
